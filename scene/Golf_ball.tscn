@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cifuwdeev0bxu"]
+
+[ext_resource type="Texture2D" uid="uid://w2q0ighlf7k6" path="res://icon.svg" id="1_pkbw4"]
+[ext_resource type="Script" uid="uid://ocemwjh7remr" path="res://Script/golf_ball.gd" id="1_skk3x"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pkbw4")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_13qdw"]
+radius = 19.026299
+
+[node name="golfball" type="RigidBody2D" unique_id=1080908085]
+gravity_scale = 0.0
+script = ExtResource("1_skk3x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1764240781]
+scale = Vector2(0.28515625, 0.28515622)
+sprite_frames = SubResource("SpriteFrames_13qdw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1159521771]
+shape = SubResource("CircleShape2D_13qdw")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=2094625322]
+scale = Vector2(1, 9.2550535)
+points = PackedVector2Array(0, 0, 0, -7.808674, 0, -28.07502, 0, -38)
