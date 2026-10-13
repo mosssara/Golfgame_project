@@ -2,7 +2,30 @@
 
 [ext_resource type="PackedScene" uid="uid://cifuwdeev0bxu" path="res://scene/Golf_ball.tscn" id="1_u7l2c"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_skk3x"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b1lj4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_13qdw"]
+size = Vector2(20, 414)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xrivr"]
+
 [node name="Node2D" type="Node2D" unique_id=1681354239]
 
 [node name="RigidBody2D" parent="." unique_id=1080908085 instance=ExtResource("1_u7l2c")]
 position = Vector2(482, 270)
+physics_material_override = SubResource("PhysicsMaterial_skk3x")
+lock_rotation = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1448804285]
+position = Vector2(190, 270)
+physics_material_override = SubResource("PhysicsMaterial_b1lj4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=225404953]
+shape = SubResource("RectangleShape2D_13qdw")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=499119868]
+position = Vector2(-0.11679077, 0.36644363)
+scale = Vector2(-19.88379, 413.91345)
+texture = SubResource("PlaceholderTexture2D_xrivr")
