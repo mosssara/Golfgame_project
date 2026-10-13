@@ -15,14 +15,13 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_13qdw"]
-radius = 19.026299
+radius = 18.027756
 
 [node name="golfball" type="RigidBody2D" unique_id=1080908085]
 gravity_scale = 0.0
-continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 1
-linear_damp = 1.0
+linear_damp = 1.4
 script = ExtResource("1_skk3x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1764240781]
@@ -32,23 +31,15 @@ sprite_frames = SubResource("SpriteFrames_13qdw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1159521771]
 shape = SubResource("CircleShape2D_13qdw")
 
-[node name="Line2D" type="Line2D" parent="." unique_id=2094625322]
-scale = Vector2(1, 9.2550535)
-points = PackedVector2Array(0, 0, 0, -5)
-width = 5.0
-joint_mode = 1
+[node name="Aimline" type="Line2D" parent="." unique_id=2094625322]
+scale = Vector2(1, 10.918832)
+points = PackedVector2Array(0, -1.8316978, 0, -7.2352066, 12, -6.411, 0, -7.3267913, -12, -6.4109426, 0, -7.2352066)
+closed = true
+width = 1.0
+begin_cap_mode = 1
+end_cap_mode = 1
 
-[node name="RayCast-down" type="RayCast2D" parent="." unique_id=1322781755]
-target_position = Vector2(0, 22)
+[node name="Timer" type="Timer" parent="." unique_id=2063302569]
+wait_time = 0.5
 
-[node name="RayCast-left" type="RayCast2D" parent="." unique_id=592861171]
-rotation = 1.5707964
-target_position = Vector2(0, 22)
-
-[node name="RayCast-up" type="RayCast2D" parent="." unique_id=1195102964]
-rotation = -3.1415925
-target_position = Vector2(0, 22)
-
-[node name="RayCast-right" type="RayCast2D" parent="." unique_id=1991035134]
-rotation = -1.5707963
-target_position = Vector2(0, 22)
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

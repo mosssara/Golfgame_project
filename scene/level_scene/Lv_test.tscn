@@ -5,27 +5,73 @@
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_skk3x"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b1lj4"]
+friction = 0.0
+bounce = 1.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_13qdw"]
-size = Vector2(20, 414)
+size = Vector2(87, 1140)
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xrivr"]
 
 [node name="Node2D" type="Node2D" unique_id=1681354239]
 
 [node name="RigidBody2D" parent="." unique_id=1080908085 instance=ExtResource("1_u7l2c")]
-position = Vector2(482, 270)
+position = Vector2(417, 290)
 physics_material_override = SubResource("PhysicsMaterial_skk3x")
 lock_rotation = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1448804285]
-position = Vector2(190, 270)
+[node name="Box" type="Node" parent="." unique_id=376390028]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Box" unique_id=1448804285]
+position = Vector2(6, 287)
 physics_material_override = SubResource("PhysicsMaterial_b1lj4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=225404953]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/StaticBody2D" unique_id=225404953]
+position = Vector2(-33.5, 35.5)
 shape = SubResource("RectangleShape2D_13qdw")
 
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=499119868]
-position = Vector2(-0.11679077, 0.36644363)
-scale = Vector2(-19.88379, 413.91345)
+[node name="Sprite2D" type="Sprite2D" parent="Box/StaticBody2D" unique_id=499119868]
+position = Vector2(-0.11679077, 37.705544)
+scale = Vector2(-19.88379, 644.5916)
+texture = SubResource("PlaceholderTexture2D_xrivr")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="Box" unique_id=701307388]
+position = Vector2(410, 73)
+rotation = 1.5707964
+physics_material_override = SubResource("PhysicsMaterial_b1lj4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/StaticBody2D2" unique_id=365738351]
+position = Vector2(-61.000008, -163)
+shape = SubResource("RectangleShape2D_13qdw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box/StaticBody2D2" unique_id=1292525984]
+position = Vector2(-57.000004, -166.28914)
+scale = Vector2(-19.88379, 1142.6157)
+texture = SubResource("PlaceholderTexture2D_xrivr")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="Box" unique_id=1875120252]
+position = Vector2(380, 540)
+rotation = 1.5707964
+physics_material_override = SubResource("PhysicsMaterial_b1lj4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/StaticBody2D3" unique_id=2105883506]
+position = Vector2(93, -194.99997)
+shape = SubResource("RectangleShape2D_13qdw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box/StaticBody2D3" unique_id=1039218926]
+position = Vector2(92.99998, -174.99998)
+scale = Vector2(-19.88379, 1132.6534)
+texture = SubResource("PlaceholderTexture2D_xrivr")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="Box" unique_id=2061737170]
+position = Vector2(600, 343)
+physics_material_override = SubResource("PhysicsMaterial_b1lj4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/StaticBody2D4" unique_id=1110441250]
+position = Vector2(546, -25)
+shape = SubResource("RectangleShape2D_13qdw")
+
+[node name="Sprite2D" type="Sprite2D" parent="Box/StaticBody2D4" unique_id=1500631597]
+position = Vector2(543, -17.69461)
+scale = Vector2(-19.88379, 651.3027)
 texture = SubResource("PlaceholderTexture2D_xrivr")
