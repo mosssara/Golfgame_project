@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://wri7ftvtudhv"]
+
+[ext_resource type="Script" uid="uid://bvm7epcxyq5tk" path="res://Script/golfhole.gd" id="1_u1wpm"]
+[ext_resource type="Texture2D" uid="uid://w2q0ighlf7k6" path="res://icon.svg" id="1_vefyu"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vefyu")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="golfhole" type="Area2D" unique_id=826809767]
+script = ExtResource("1_u1wpm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1651228940]
+scale = Vector2(1.5, 1.5)
+shape = SubResource("CircleShape2D_xrivr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1835115203]
+scale = Vector2(0.23437501, 0.23437501)
+sprite_frames = SubResource("SpriteFrames_xrivr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

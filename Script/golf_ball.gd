@@ -35,12 +35,17 @@ func _process(delta: float) -> void:
 	print("power: ",power)
 	if power >= 100 and power <= 150:
 		aimline.set_default_color(Color.AQUAMARINE)
+		
 	elif power >= 151 and power<= 350:
 		aimline.set_default_color(Color.DARK_ORANGE)
+		
 	elif power >= 351 and power <= 600:
 		aimline.set_default_color(Color.DARK_RED)
+		
 	elif power >= 601 and power <= 700:
 		aimline.set_default_color(Color.CRIMSON)
+		
+	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT and (linear_velocity == Vector2(0,0) ):
 		#power is for distance calculate to how much force

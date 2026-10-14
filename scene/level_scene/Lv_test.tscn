@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://eprjaq8l6l0m"]
 
 [ext_resource type="PackedScene" uid="uid://cifuwdeev0bxu" path="res://scene/Golf_ball.tscn" id="1_u7l2c"]
+[ext_resource type="PackedScene" uid="uid://wri7ftvtudhv" path="res://scene/golfhole.tscn" id="2_0uqq7"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_skk3x"]
 
@@ -75,3 +76,6 @@ shape = SubResource("RectangleShape2D_13qdw")
 position = Vector2(543, -17.69461)
 scale = Vector2(-19.88379, 651.3027)
 texture = SubResource("PlaceholderTexture2D_xrivr")
+
+[node name="Area2D" parent="." unique_id=826809767 instance=ExtResource("2_0uqq7")]
+position = Vector2(788, 105)
