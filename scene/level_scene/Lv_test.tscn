@@ -1,81 +1,16 @@
-[gd_scene format=3 uid="uid://eprjaq8l6l0m"]
+[gd_scene format=4 uid="uid://eprjaq8l6l0m"]
 
 [ext_resource type="PackedScene" uid="uid://cifuwdeev0bxu" path="res://scene/Golf_ball.tscn" id="1_u7l2c"]
 [ext_resource type="PackedScene" uid="uid://wri7ftvtudhv" path="res://scene/golfhole.tscn" id="2_0uqq7"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_skk3x"]
-
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_b1lj4"]
-friction = 0.0
-bounce = 1.0
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_13qdw"]
-size = Vector2(87, 1140)
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_xrivr"]
+[ext_resource type="PackedScene" uid="uid://d2sxagh6h4di" path="res://scene/tiles.tscn" id="3_obagj"]
 
 [node name="Node2D" type="Node2D" unique_id=1681354239]
 
-[node name="RigidBody2D" parent="." unique_id=1080908085 instance=ExtResource("1_u7l2c")]
-position = Vector2(417, 290)
-physics_material_override = SubResource("PhysicsMaterial_skk3x")
-lock_rotation = true
+[node name="golfhole" parent="." unique_id=826809767 instance=ExtResource("2_0uqq7")]
+position = Vector2(816, 210)
 
-[node name="Box" type="Node" parent="." unique_id=376390028]
+[node name="golfball" parent="." unique_id=1080908085 instance=ExtResource("1_u7l2c")]
+position = Vector2(318, 326)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Box" unique_id=1448804285]
-position = Vector2(6, 287)
-physics_material_override = SubResource("PhysicsMaterial_b1lj4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/StaticBody2D" unique_id=225404953]
-position = Vector2(-33.5, 35.5)
-shape = SubResource("RectangleShape2D_13qdw")
-
-[node name="Sprite2D" type="Sprite2D" parent="Box/StaticBody2D" unique_id=499119868]
-position = Vector2(-0.11679077, 37.705544)
-scale = Vector2(-19.88379, 644.5916)
-texture = SubResource("PlaceholderTexture2D_xrivr")
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="Box" unique_id=701307388]
-position = Vector2(410, 73)
-rotation = 1.5707964
-physics_material_override = SubResource("PhysicsMaterial_b1lj4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/StaticBody2D2" unique_id=365738351]
-position = Vector2(-61.000008, -163)
-shape = SubResource("RectangleShape2D_13qdw")
-
-[node name="Sprite2D" type="Sprite2D" parent="Box/StaticBody2D2" unique_id=1292525984]
-position = Vector2(-57.000004, -166.28914)
-scale = Vector2(-19.88379, 1142.6157)
-texture = SubResource("PlaceholderTexture2D_xrivr")
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="Box" unique_id=1875120252]
-position = Vector2(380, 540)
-rotation = 1.5707964
-physics_material_override = SubResource("PhysicsMaterial_b1lj4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/StaticBody2D3" unique_id=2105883506]
-position = Vector2(93, -194.99997)
-shape = SubResource("RectangleShape2D_13qdw")
-
-[node name="Sprite2D" type="Sprite2D" parent="Box/StaticBody2D3" unique_id=1039218926]
-position = Vector2(92.99998, -174.99998)
-scale = Vector2(-19.88379, 1132.6534)
-texture = SubResource("PlaceholderTexture2D_xrivr")
-
-[node name="StaticBody2D4" type="StaticBody2D" parent="Box" unique_id=2061737170]
-position = Vector2(600, 343)
-physics_material_override = SubResource("PhysicsMaterial_b1lj4")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Box/StaticBody2D4" unique_id=1110441250]
-position = Vector2(546, -25)
-shape = SubResource("RectangleShape2D_13qdw")
-
-[node name="Sprite2D" type="Sprite2D" parent="Box/StaticBody2D4" unique_id=1500631597]
-position = Vector2(543, -17.69461)
-scale = Vector2(-19.88379, 651.3027)
-texture = SubResource("PlaceholderTexture2D_xrivr")
-
-[node name="Area2D" parent="." unique_id=826809767 instance=ExtResource("2_0uqq7")]
-position = Vector2(788, 105)
+[node name="tiles" parent="." unique_id=363052023 instance=ExtResource("3_obagj")]
+tile_map_data = PackedByteArray("AAABAAgAAAAAAAIAAAABAAEAAAAAAAAAAAARAAEAAAACAAAAAAARAAgAAAACAAIAAAABAAcAAAAAAAEAAAABAAYAAAAAAAEAAAABAAUAAAAAAAEAAAABAAQAAAAAAAEAAAABAAMAAAAAAAEAAAABAAIAAAAAAAEAAAACAAEAAAABAAAAAAADAAEAAAABAAAAAAAEAAEAAAABAAAAAAAFAAEAAAABAAAAAAAGAAEAAAABAAAAAAAHAAEAAAABAAAAAAAIAAEAAAABAAAAAAAJAAEAAAABAAAAAAAKAAEAAAABAAAAAAALAAEAAAABAAAAAAAMAAEAAAABAAAAAAANAAEAAAABAAAAAAAOAAEAAAABAAAAAAAPAAEAAAABAAAAAAAQAAEAAAABAAAAAAAQAAgAAAABAAIAAAAPAAgAAAABAAIAAAAOAAgAAAABAAIAAAANAAgAAAABAAIAAAAMAAgAAAABAAIAAAALAAgAAAABAAIAAAAKAAgAAAABAAIAAAAJAAgAAAABAAIAAAAIAAgAAAABAAIAAAAHAAgAAAABAAIAAAAGAAgAAAABAAIAAAAFAAgAAAABAAIAAAAEAAgAAAABAAIAAAADAAgAAAABAAIAAAACAAgAAAABAAIAAAARAAcAAAACAAEAAAARAAYAAAACAAEAAAARAAUAAAACAAEAAAARAAQAAAACAAEAAAARAAMAAAACAAEAAAARAAIAAAACAAEAAAA=")

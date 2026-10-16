@@ -1,15 +1,48 @@
 [gd_scene format=3 uid="uid://wri7ftvtudhv"]
 
 [ext_resource type="Script" uid="uid://bvm7epcxyq5tk" path="res://Script/golfhole.gd" id="1_u1wpm"]
-[ext_resource type="Texture2D" uid="uid://w2q0ighlf7k6" path="res://icon.svg" id="1_vefyu"]
+[ext_resource type="Texture2D" uid="uid://bptk8q78fvwc5" path="res://asset/golfhole.png" id="2_u1wpm"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k675g"]
+size = Vector2(16, 6)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_xrivr"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufdf1"]
+atlas = ExtResource("2_u1wpm")
+region = Rect2(0, 0, 48, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_02cfm"]
+atlas = ExtResource("2_u1wpm")
+region = Rect2(48, 0, 48, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yiotb"]
+atlas = ExtResource("2_u1wpm")
+region = Rect2(96, 0, 48, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f2jd"]
+atlas = ExtResource("2_u1wpm")
+region = Rect2(144, 0, 48, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_453co"]
+atlas = ExtResource("2_u1wpm")
+region = Rect2(192, 0, 48, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_udyvc"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_vefyu")
+"texture": SubResource("AtlasTexture_ufdf1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_02cfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yiotb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f2jd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_453co")
 }],
 "loop": 1,
 "name": &"default",
@@ -17,14 +50,18 @@ animations = [{
 }]
 
 [node name="golfhole" type="Area2D" unique_id=826809767]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_u1wpm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1651228940]
+position = Vector2(0, -0.5)
 scale = Vector2(1.5, 1.5)
-shape = SubResource("CircleShape2D_xrivr")
+shape = SubResource("RectangleShape2D_k675g")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1835115203]
-scale = Vector2(0.23437501, 0.23437501)
-sprite_frames = SubResource("SpriteFrames_xrivr")
+texture_filter = 1
+position = Vector2(8, -35)
+sprite_frames = SubResource("SpriteFrames_udyvc")
+frame_progress = 0.22135335
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

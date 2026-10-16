@@ -1,13 +1,17 @@
 [gd_scene format=3 uid="uid://cifuwdeev0bxu"]
 
-[ext_resource type="Texture2D" uid="uid://w2q0ighlf7k6" path="res://icon.svg" id="1_pkbw4"]
 [ext_resource type="Script" uid="uid://ocemwjh7remr" path="res://Script/golf_ball.gd" id="1_skk3x"]
+[ext_resource type="Texture2D" uid="uid://b423v2vwccpwg" path="res://asset/Golfball.png" id="2_skk3x"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n0j2n"]
+friction = 0.0
+bounce = 1.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_13qdw"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_pkbw4")
+"texture": ExtResource("2_skk3x")
 }],
 "loop": 1,
 "name": &"default",
@@ -15,17 +19,20 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_13qdw"]
-radius = 18.027756
+radius = 7.071068
 
 [node name="golfball" type="RigidBody2D" unique_id=1080908085]
+physics_material_override = SubResource("PhysicsMaterial_n0j2n")
 gravity_scale = 0.0
+lock_rotation = true
 contact_monitor = true
 max_contacts_reported = 1
 linear_damp = 1.4
 script = ExtResource("1_skk3x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1764240781]
-scale = Vector2(0.28515625, 0.28515622)
+texture_filter = 1
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_13qdw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1159521771]
@@ -39,7 +46,9 @@ width = 1.0
 begin_cap_mode = 1
 end_cap_mode = 1
 
-[node name="Timer" type="Timer" parent="." unique_id=2063302569]
-wait_time = 0.5
+[node name="Timer" type="Timer" parent="." unique_id=35038538]
+
+[node name="Timer2" type="Timer" parent="." unique_id=1856173383]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
