@@ -16,35 +16,35 @@ var target = 0
 func _process(delta: float) -> void:
 	mouse_pos = get_global_mouse_position()
 	golf_pos = get_global_position()
-
-	#line_rotation is where line actualGGly look to cursor
-	line_rotation = (rad_to_deg(get_angle_to(mouse_pos)))+90
-	
-	target = line_rotation+180
-	aimline.global_rotation_degrees = target
-	print("Linear velo",get_linear_velocity())
 	
 	if linear_velocity != Vector2(0,0):
 		aimline.hide()
 	else:
 		aimline.show()
+	#line_rotation is where line actualGGly look to cursor
+	line_rotation = (rad_to_deg(get_angle_to(mouse_pos)))+90
+	
+	target = line_rotation+180
+	aimline.global_rotation_degrees = target
+	
+	
 	
 	var distanceVec = abs((mouse_pos - golf_pos))
 	var power = (distanceVec[0]**2)+(distanceVec[1]**2) 
 	power = round(sqrt(power))
-	power = power**1.3
-	power = clampf(power,100,700)
+	power = power*4
+	power = clampf(power,100,500)
 	print("power: ",power)
-	if power >= 100 and power <= 150:
+	if power >= 100 and power <= 200:
 		aimline.set_default_color(Color.AQUAMARINE)
 		
-	elif power >= 151 and power<= 350:
+	elif power >= 201 and power<= 300:
 		aimline.set_default_color(Color.DARK_ORANGE)
 		
-	elif power >= 351 and power <= 600:
+	elif power >= 301 and power <= 400:
 		aimline.set_default_color(Color.DARK_RED)
 		
-	elif power >= 601 and power <= 700:
+	elif power >= 401 and power <= 500:
 		aimline.set_default_color(Color.CRIMSON)
 		
 	print(abs(linear_velocity))
@@ -55,9 +55,9 @@ func _input(event: InputEvent) -> void:
 		var distanceVec = abs((mouse_pos - golf_pos))
 		var power = (distanceVec[0]**2)+(distanceVec[1]**2) 
 		power = round(sqrt(power))
-		power = power**1.3
+		power = power*4
 
-		power = clampf(power,100,850)
+		power = clampf(power,100,500)
 		print("actual power:",power)
 		print("angle: ",Vector2.from_angle(get_angle_to(mouse_pos)))
 		apply_central_force(((Vector2.from_angle(get_angle_to(mouse_pos)))*speed*power*-1))
