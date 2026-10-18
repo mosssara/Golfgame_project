@@ -3,6 +3,7 @@ extends RigidBody2D
 @onready var timer: Timer = $Timer
 @onready var aimline: Line2D = $Aimline
 @onready var timer_2: Timer = $Timer2
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
 
 var mouse_pos = null
@@ -62,15 +63,22 @@ func _input(event: InputEvent) -> void:
 		print("angle: ",Vector2.from_angle(get_angle_to(mouse_pos)))
 		apply_central_force(((Vector2.from_angle(get_angle_to(mouse_pos)))*speed*power*-1))
 		print("Linear velo",get_linear_velocity())
-		timer.start(0.75)
+		audio_stream_player.play()
+		timer.start(1)
 		
 func _on_timer_timeout() -> void:
 	print("timeout")
 	if abs(linear_velocity[0]) <= 1.7 and abs(linear_velocity[1]) <= 1.7:
-		timer_2.start(0.25)
+		timer_2.start(1)
 		timer.stop()
 
 
 func _on_timer_2_timeout() -> void:
 	if abs(linear_velocity[0]) <= 1.7 and abs(linear_velocity[1]) <= 1.7:
 		linear_velocity = Vector2(0,0)
+		
+
+
+
+func _on_body_entered(body: Node) -> void:
+	audio_stream_player.play()
