@@ -5,19 +5,17 @@ extends RigidBody2D
 @onready var timer_2: Timer = $Timer2
 @onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 
-
 var mouse_pos = null
 var golf_pos = null
 var speed = 100 #default base speed edit here if want to change all speed
 var line_rotation = 0
 var target = 0
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	mouse_pos = get_global_mouse_position()
 	golf_pos = get_global_position()
-	
+
 	if linear_velocity != Vector2(0,0):
 		aimline.hide()
 	else:
@@ -57,13 +55,14 @@ func _input(event: InputEvent) -> void:
 		var power = (distanceVec[0]**2)+(distanceVec[1]**2) 
 		power = round(sqrt(power))
 		power = power*4
-
 		power = clampf(power,100,500)
 		print("actual power:",power)
 		print("angle: ",Vector2.from_angle(get_angle_to(mouse_pos)))
 		apply_central_force(((Vector2.from_angle(get_angle_to(mouse_pos)))*speed*power*-1))
 		print("Linear velo",get_linear_velocity())
 		audio_stream_player.play()
+	
+	
 		timer.start(1)
 		
 func _on_timer_timeout() -> void:

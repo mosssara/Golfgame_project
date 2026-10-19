@@ -64,4 +64,7 @@ position = Vector2(8, -35)
 sprite_frames = SubResource("SpriteFrames_udyvc")
 frame_progress = 0.22135335
 
+[node name="Timer" type="Timer" parent="." unique_id=819590201]
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

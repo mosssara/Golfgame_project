@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="golfgame-clone"
-run/main_scene="uid://eprjaq8l6l0m"
+run/main_scene="uid://dtn221bahypbh"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

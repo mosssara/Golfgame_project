@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://dtn221bahypbh"]
+
+[ext_resource type="Script" uid="uid://hfi2lrbfxi5b" path="res://Script/levelbutton.gd" id="1_phlv8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_13qdw"]
+font_size = 50
+
+[node name="Control" type="Control" unique_id=1343949035]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=1878145542]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.25516048
+anchor_right = 0.5
+anchor_bottom = 0.25516048
+offset_left = -129.0
+offset_top = -34.344
+offset_right = 129.0
+offset_bottom = 34.656
+grow_horizontal = 2
+text = "MINI GOLF"
+label_settings = SubResource("LabelSettings_13qdw")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=106928028]
+z_index = -1
+layout_mode = 0
+offset_left = -28.0
+offset_top = 1.0
+offset_right = 1157.0
+offset_bottom = 667.0
+color = Color(0, 0, 0, 1)
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=2066429459]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -431.0
+offset_right = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/h_separation = 150
+theme_override_constants/v_separation = 4
+columns = 5
+
+[node name="Button-lv1" type="Button" parent="GridContainer" unique_id=1750817016]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "1"
+icon_alignment = 1
+script = ExtResource("1_phlv8")
+
+[node name="Button-lv2" type="Button" parent="GridContainer" unique_id=437363023]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "2"
+script = ExtResource("1_phlv8")
+
+[node name="Button-lv3" type="Button" parent="GridContainer" unique_id=1951553465]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "3"
+script = ExtResource("1_phlv8")
+
+[node name="Button-lv4" type="Button" parent="GridContainer" unique_id=1719392393]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "4"
+script = ExtResource("1_phlv8")
+
+[node name="Button-lv5" type="Button" parent="GridContainer" unique_id=2109892203]
+z_index = 1
+texture_filter = 1
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+action_mode = 0
+text = "5"
+script = ExtResource("1_phlv8")
+
+[connection signal="button_down" from="GridContainer/Button-lv1" to="GridContainer/Button-lv1" method="_on_button_down"]
+[connection signal="button_down" from="GridContainer/Button-lv2" to="GridContainer/Button-lv2" method="_on_button_down"]
+[connection signal="button_down" from="GridContainer/Button-lv3" to="GridContainer/Button-lv3" method="_on_button_down"]
+[connection signal="button_down" from="GridContainer/Button-lv4" to="GridContainer/Button-lv4" method="_on_button_down"]
+[connection signal="button_down" from="GridContainer/Button-lv5" to="GridContainer/Button-lv5" method="_on_button_down"]
