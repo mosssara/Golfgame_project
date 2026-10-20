@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bshpuco7j4x8p"]
+
+[ext_resource type="Script" uid="uid://dytpg57haefht" path="res://Script/bounceball.gd" id="1_eiu3s"]
+[ext_resource type="Texture2D" uid="uid://b423v2vwccpwg" path="res://asset/Golfball.png" id="1_vf0rl"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_13qdw"]
+bounce = 1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xrivr"]
+radius = 21.023796
+
+[node name="bounceball" type="RigidBody2D" unique_id=1765221951]
+mass = 20.0
+physics_material_override = SubResource("PhysicsMaterial_13qdw")
+freeze = true
+script = ExtResource("1_eiu3s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1288013061]
+modulate = Color(0.8750814, 0.20598418, 0.21508199, 1)
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_vf0rl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=330665641]
+shape = SubResource("CircleShape2D_xrivr")

@@ -1,0 +1,19 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "golfgame-clone", "golfgame-clone.csproj", "{A0BAD54B-9C67-488A-A014-B0A4A7118E38}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+	Debug|Any CPU = Debug|Any CPU
+	ExportDebug|Any CPU = ExportDebug|Any CPU
+	ExportRelease|Any CPU = ExportRelease|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A0BAD54B-9C67-488A-A014-B0A4A7118E38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0BAD54B-9C67-488A-A014-B0A4A7118E38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0BAD54B-9C67-488A-A014-B0A4A7118E38}.ExportDebug|Any CPU.ActiveCfg = ExportDebug|Any CPU
+		{A0BAD54B-9C67-488A-A014-B0A4A7118E38}.ExportDebug|Any CPU.Build.0 = ExportDebug|Any CPU
+		{A0BAD54B-9C67-488A-A014-B0A4A7118E38}.ExportRelease|Any CPU.ActiveCfg = ExportRelease|Any CPU
+		{A0BAD54B-9C67-488A-A014-B0A4A7118E38}.ExportRelease|Any CPU.Build.0 = ExportRelease|Any CPU
+	EndGlobalSection
+EndGlobal

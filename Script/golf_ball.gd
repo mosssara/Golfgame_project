@@ -10,7 +10,8 @@ var golf_pos = null
 var speed = 100 #default base speed edit here if want to change all speed
 var line_rotation = 0
 var target = 0
-
+signal hit(a)
+var count = 0
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	mouse_pos = get_global_mouse_position()
@@ -33,7 +34,6 @@ func _process(delta: float) -> void:
 	power = round(sqrt(power))
 	power = power*4
 	power = clampf(power,100,500)
-	print("power: ",power)
 	if power >= 100 and power <= 200:
 		aimline.set_default_color(Color.AQUAMARINE)
 		
@@ -45,8 +45,6 @@ func _process(delta: float) -> void:
 		
 	elif power >= 401 and power <= 500:
 		aimline.set_default_color(Color.CRIMSON)
-		
-	print(abs(linear_velocity))
 	
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT and (linear_velocity == Vector2(0,0) ):
@@ -56,17 +54,14 @@ func _input(event: InputEvent) -> void:
 		power = round(sqrt(power))
 		power = power*4
 		power = clampf(power,100,500)
-		print("actual power:",power)
-		print("angle: ",Vector2.from_angle(get_angle_to(mouse_pos)))
+		
 		apply_central_force(((Vector2.from_angle(get_angle_to(mouse_pos)))*speed*power*-1))
-		print("Linear velo",get_linear_velocity())
 		audio_stream_player.play()
-	
-	
+		count += 1
+		emit_signal("hit")
 		timer.start(1)
 		
 func _on_timer_timeout() -> void:
-	print("timeout")
 	if abs(linear_velocity[0]) <= 1.7 and abs(linear_velocity[1]) <= 1.7:
 		timer_2.start(1)
 		timer.stop()
@@ -76,8 +71,5 @@ func _on_timer_2_timeout() -> void:
 	if abs(linear_velocity[0]) <= 1.7 and abs(linear_velocity[1]) <= 1.7:
 		linear_velocity = Vector2(0,0)
 		
-
-
-
 func _on_body_entered(body: Node) -> void:
 	audio_stream_player.play()

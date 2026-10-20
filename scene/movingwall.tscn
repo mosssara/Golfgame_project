@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://deoohrig208p3"]
+
+[ext_resource type="Texture2D" uid="uid://d1o4mx2ghdstk" path="res://asset/tiles.png" id="1_ahrjh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrivr"]
+size = Vector2(16, 42.666668)
+
+[node name="movingwall" type="AnimatableBody2D" unique_id=1078084855]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=307093181]
+scale = Vector2(1, 2.6666665)
+texture = ExtResource("1_ahrjh")
+region_enabled = true
+region_rect = Rect2(80, 0, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=276952372]
+shape = SubResource("RectangleShape2D_xrivr")
